@@ -4,7 +4,8 @@ export const signUpFunc = async (
 	firstname,
 	lastname,
 	email,
-	password
+	password,
+	setter
 ) => {
 	try {
 		// response from API goes here
@@ -24,9 +25,10 @@ export const signUpFunc = async (
 		// console.log / find out what the response is, and it must be json format
 		const data = await response.json();
 		console.log(data);
+		console.log(data.savedUser.userName);
 		// console.log(`The response from the fetch db api ${data}`);
 		// set it up in the React
-		// setter(data.savedData.userName);
+		setter(data.savedUser.userName);
 	} catch (error) {
 		console.log(error);
 	}

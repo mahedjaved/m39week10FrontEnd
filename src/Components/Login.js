@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { signUpFunc } from "../utils";
 
-const Login = () => {
+const Login = ({ setter }) => {
 	// a field and variable for each of the five parameters we pass
 	const [username, setUsername] = useState("");
 	const [firstName, setFirstName] = useState("");
@@ -13,7 +13,7 @@ const Login = () => {
 	// tell the code what to do when user clicks on submit button
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		await signUpFunc(username, firstName, lastName, email, password);
+		await signUpFunc(username, firstName, lastName, email, password, setter);
 	};
 
 	// render component

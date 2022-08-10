@@ -18,6 +18,8 @@ function App() {
 		setMyImages(response);
 	};
 
+	/** 
+	 * This cancelled, it needs to be rebuild for multiple user entry, you can use both ENTER key or form button, I'd have reviews that you dont need to list it since it will just add to the data as you go
 	const handleUser = async (event) => {
 		if (event.key === "Enter") {
 			console.log(`[info handleUserEnter] You pressed enter`);
@@ -26,6 +28,7 @@ function App() {
 			setUser(userArray);
 		}
 	};
+	*/
 
 	// useEffect to help mount the state and update
 	useEffect(() => {
@@ -35,15 +38,19 @@ function App() {
 	return (
 		<div>
 			<h2>Back-End User Information</h2>
-			<Login />
+			{/* passed in the update function as prop to Login so it can be accessed there */}
+			<Login setter={setUser} />
+			<br />
+			<h2>The user : {user} has logged in</h2>
 			{/* ___________________________________________________________________________________________________________ */}
+			{/* This one is cancelled since having new user info, probs use this when going for multiple users
 			<h2>User Information Form</h2>
 			<input onKeyDown={(event) => handleUser(event)}></input>
 			<ul>
 				{user.map((item, index) => {
 					return <li key={index}>{item}</li>;
 				})}
-			</ul>
+			</ul> */}
 
 			{/* ___________________________________________________________________________________________________________ */}
 			<h2>Basic Instagram Clone</h2>
