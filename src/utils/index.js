@@ -79,12 +79,10 @@ export const logOutFunc = async (token) => {
 	 * on the endpoint :: /users/logout
 	 */
 	try {
-		console.log("[logOutmsg] The token when logging out");
-		console.log(token);
-		//
 		const response = await fetch("http://localhost:5000/users/logout", {
 			method: "GET",
-			headers: { Authorization: "Bearer " + token },
+			// headers: { Authorization: "Bearer " + token },
+			headers: { Authorization: token.token },
 		});
 		const data = await response.json();
 		console.log("[resMsg] Response from utils logOutFunc : ");
