@@ -2,7 +2,7 @@ import { logOutFunc } from "../utils";
 
 function LogOut(token) {
 	// submit button handler
-	const handleLogoutFormSubmit = async (event) => {
+	const handleLogoutButtonClick = async (event) => {
 		event.preventDefault();
 		await logOutFunc(token);
 	};
@@ -13,8 +13,8 @@ function LogOut(token) {
 			{/* you cannot logout without logging in so use short circuit to confirm somebody has logged in or not */}
 			{token && (
 				<button
-					onSubmit={(event) => {
-						handleLogoutFormSubmit(event);
+					onClick={(event) => {
+						handleLogoutButtonClick(event);
 					}}
 					type="submit"
 				>

@@ -39,9 +39,6 @@ function App() {
 			) : (
 				<h2>The user - {user} has logged in</h2>
 			)}
-			{console.log(
-				`[info] from App.js post signup -->  Retrieved token : ${token}`
-			)}
 			{/* _______________________________________________________________________________________________ */}
 			<h2>Login Form</h2>
 			<LogIn emailSetter={setEmail} tokenSetter={setToken} />
@@ -49,9 +46,6 @@ function App() {
 				<h2>No user logged in</h2>
 			) : (
 				<h2>You have signed with email - {email}</h2>
-			)}
-			{console.log(
-				`[info] from App.js post login-->  Retrieved token : ${token}`
 			)}
 			{/* ______________________________________________________________________________________________ */}
 			<h2>LogOut</h2>

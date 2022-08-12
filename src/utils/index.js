@@ -81,6 +81,7 @@ export const logOutFunc = async (token) => {
 	 * on the endpoint :: /users/logout
 	 */
 	try {
+		console.log(token);
 		//
 		const response = await fetch("http://localhost:5000/users/logout", {
 			method: "GET",
