@@ -1,65 +1,26 @@
-// have some state variables imported
 import { useState } from "react";
-import { signUpFunc } from "../utils";
+import { logInFunc } from "../utils";
 
-const Login = ({ setter }) => {
-	// a field and variable for each of the five parameters we pass
-	const [username, setUsername] = useState("");
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
+const LogIn = ({ emailSetter, tokenSetter }) => {
+	// state hooks for email and password
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	// tell the code what to do when user clicks on submit button
-	const handleSubmit = async (event) => {
+	// handle submit button for the form
+	const handleLoginFormSubmit = async (event) => {
 		event.preventDefault();
-		await signUpFunc(username, firstName, lastName, email, password, setter);
+		await logInFunc(email, password, emailSetter, tokenSetter);
 	};
 
-	// render component
+	// main render component
 	return (
 		<div>
 			<form
 				onSubmit={(event) => {
-					handleSubmit(event);
+					handleLoginFormSubmit(event);
 				}}
 			>
-				{/* __________USERNAME________________ */}
-				{/* label allows us to see what kind of information has to go in the input in the form */}
-				<label>
-					Username:
-					<input
-						onChange={(event) => {
-							setUsername(event.target.value);
-						}}
-					></input>
-				</label>
-				<br />
-
-				{/* __________FIRSTNAME________________ */}
-				<label>
-					First Name:
-					<input
-						onChange={(event) => {
-							setFirstName(event.target.value);
-						}}
-					></input>
-				</label>
-				<br />
-
-				{/* __________LASTNAME________________ */}
-				<label>
-					Last Name:
-					<input
-						onChange={(event) => {
-							setLastName(event.target.value);
-						}}
-					></input>
-				</label>
-				<br />
-
-				{/* __________EMAIL________________ */}
-				{/* the type="email" checks if there is an @ symbol as you put in */}
+				{/* ----------------- EMAIL INPUT ----------------- */}
 				<label>
 					Email:
 					<input
@@ -71,7 +32,7 @@ const Login = ({ setter }) => {
 				</label>
 				<br />
 
-				{/* __________PASSWORD________________ */}
+				{/* ----------------- PASSWORD INPUT ----------------- */}
 				<label>
 					Password:
 					<input
@@ -82,11 +43,11 @@ const Login = ({ setter }) => {
 				</label>
 				<br />
 
-				{/* button to process, the handling of submitting is in the <form> tag */}
-				<button type="submit">Submit</button>
+				{/* button assign for submit form */}
+				<button type="submit">LogIn</button>
 			</form>
 		</div>
 	);
 };
 
-export default Login;
+export default LogIn;
