@@ -53,8 +53,6 @@ export const logInFunc = async (email, password, emailSetter, tokenSetter) => {
 		});
 		// the response need to be jsonified
 		const data = await response.json();
-		console.log("[msg] Checking data for LogIn");
-		console.log(data);
 		// console.log("[msg] This res comes from React utils loginFunc :");
 		// console.log(data);
 		console.log(
@@ -81,6 +79,7 @@ export const logOutFunc = async (token) => {
 	 * on the endpoint :: /users/logout
 	 */
 	try {
+		console.log("[logOutmsg] The token when logging out");
 		console.log(token);
 		//
 		const response = await fetch("http://localhost:5000/users/logout", {
