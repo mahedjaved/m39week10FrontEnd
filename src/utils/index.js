@@ -94,7 +94,7 @@ export const logOutFunc = async (token) => {
 };
 
 // Update function
-export const updateFunc = async ({ token, userId, username, password }) => {
+export const updateFunc = async (token, userId, username, password) => {
 	try {
 		const response = await fetch("http://localhost:5000/users/myprofile", {
 			method: "PATCH",

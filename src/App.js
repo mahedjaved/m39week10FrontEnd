@@ -34,7 +34,7 @@ function App() {
 		<div>
 			<p>SignUp Form</p>
 			{/* passed in the update function as prop to Login so it can be accessed there */}
-			<SignUp userSetter={setUser} tokenSetter={setToken} />
+			<SignUp userSetter={setUser} />
 			<br />
 			{user.length === 0 ? (
 				<p>No user logged in</p>
