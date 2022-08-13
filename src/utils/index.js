@@ -67,7 +67,7 @@ export const logInFunc = async (email, password, emailSetter, tokenSetter) => {
 };
 
 // LogOut function
-export const logOutFunc = async (token) => {
+export const logOutFunc = async (token, email, password) => {
 	/**
 	 * Requires authorisation --> runs the middleware func auth
 	 * Hence needs in the header the key term (Authorisation)
@@ -83,6 +83,10 @@ export const logOutFunc = async (token) => {
 			method: "GET",
 			// headers: { Authorization: "Bearer " + token },
 			headers: { Authorization: token.token },
+			body: JSON.stringify({
+				email: email,
+				password: password,
+			}),
 		});
 		const data = await response.json();
 		console.log("[resMsg] Response from utils logOutFunc : ");
@@ -92,5 +96,24 @@ export const logOutFunc = async (token) => {
 			"[errormsg] The following error comes from logOutFunc in utils"
 		);
 		console.log(error);
+	}
+};
+
+// Update function
+export const updateFunc = async ({ token }) => {
+	try {
+		const response = await fetch("http://localhost:5000/users/myprofile", {
+			method: "PATCH",
+			headers: { Authorization: token.token },
+			body: {},
+		});
+		const data = await response.json();
+		console.log("[resMsg] Response from utils logOutFunc : ");
+		console.log(data);
+	} catch (error) {
+		// error handling
+		console.log(
+			`[errormsg] This comes from updateFunc in utils :: ${error}`
+		);
 	}
 };
