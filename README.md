@@ -5,9 +5,11 @@
 > [FINISHED] > Focus on building up and using Mongoose backend to setup users
 > [FINISHED] CR operations
 
-# Future Changes
+# Future Changes and Improvements
 
 > [TODO] Performing UD operations
+
+> Andy didnt have a try catch statement for his hashPassword middleware function ! I had to add it myself later when working with logout and update request
 
 # Tips N Learned
 
@@ -16,6 +18,8 @@
 > Occured when working on updates, token and password went to UNDERFINED
 
 > Also, the response messages from Andy's backend are ONLY OUTPUTTED if they are console.logged in React front-end !!
+
+> The Update User function token was not being passed --> it finally worked by removing the dot, which makes no sense because it is the same token, I used for Logout !
 
 # Unused Code Placed Here
 
