@@ -59,10 +59,10 @@ export const logInFunc = async (
 		});
 		// the response need to be jsonified
 		const data = await response.json();
-		console.log(
-			"[msg] This res comes from React utils loginFunc, checking if userId exists :"
-		);
-		console.log(data);
+		// console.log(
+		// 	"[msg] This res comes from React utils loginFunc, checking if userId exists :"
+		// );
+		// console.log(data);
 		console.log(
 			`The following user with email : ${data.user.email} just logged in`
 		);
@@ -84,8 +84,7 @@ export const logOutFunc = async (token) => {
 			headers: { Authorization: token.token },
 		});
 		const data = await response.json();
-		// console.log("[resMsg] Response from utils logOutFunc : ");
-		// console.log(data);
+		console.log(data);
 	} catch (error) {
 		console.log(
 			"[errormsg] The following error comes from logOutFunc in utils"
