@@ -3,14 +3,23 @@ import { updateFunc } from "../utils";
 
 function Update({ token, userId }) {
 	// state hooks present here
-	const [username, setNewUsername] = useState("");
-	const [password, setNewPassword] = useState("");
+	const [username, setOldUsername] = useState("");
+	const [password, setOldPassword] = useState("");
+	const [new_username, setNewUsername] = useState("");
+	const [new_password, setNewPassword] = useState("");
 	// TODO--> extend this to include new email ? if possible
 
 	// submit handler function
 	const handleUpdateFormSubmit = async (event) => {
 		event.preventDefault();
-		await updateFunc(token, userId, username, password);
+		await updateFunc(
+			token,
+			userId,
+			username,
+			password,
+			new_username,
+			new_password
+		);
 	};
 
 	// final render component
@@ -22,6 +31,28 @@ function Update({ token, userId }) {
 				}}
 			>
 				{/* TODO --> Possibly expand this to accomodate new EMAIL as well if you want ?? */}
+				{/* ----------------- OLD USERNAME INPUT ----------------- */}
+				<label>
+					Old Username:
+					<input
+						onChange={(event) => {
+							setOldUsername(event.target.value);
+						}}
+					></input>
+				</label>
+				<br />
+
+				{/* ----------------- OLD PASSWORD INPUT ----------------- */}
+				<label>
+					Old Password:
+					<input
+						onChange={(event) => {
+							setOldPassword(event.target.value);
+						}}
+					></input>
+				</label>
+				<br />
+
 				{/* ----------------- NEW USERNAME INPUT ----------------- */}
 				<label>
 					New Username:

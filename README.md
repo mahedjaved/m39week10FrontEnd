@@ -1,12 +1,21 @@
-# Information
+# Description
 
 > Recap of fundamentals of React.js
 > Includes making forms, fetching API and outputting user info
 > [FINISHED] > Focus on building up and using Mongoose backend to setup users
+> [FINISHED] CR operations
 
 # Future Changes
 
-> [TODO] Performing CRUD operations
+> [TODO] Performing UD operations
+
+# Tips N Learned
+
+> Make sure to always use {} in React arguments ONLY ! if you do this index.js then arguments go to UNDEFINED
+
+> Occured when working on updates, token and password went to UNDERFINED
+
+> Also, the response messages from Andy's backend are ONLY OUTPUTTED if they are console.logged in React front-end !!
 
 # Unused Code Placed Here
 

@@ -94,13 +94,25 @@ export const logOutFunc = async (token) => {
 };
 
 // Update function
-export const updateFunc = async (token, userId, username, password) => {
+export const updateFunc = async (
+	token,
+	userId,
+	username,
+	password,
+	new_username,
+	new_password
+) => {
 	try {
 		const response = await fetch("http://localhost:5000/users/myprofile", {
 			method: "PATCH",
 			headers: { Authorization: token.token },
 			user: { _id: userId },
-			body: JSON.stringify({ username, password }),
+			body: JSON.stringify({
+				username,
+				password,
+				new_username,
+				new_password,
+			}),
 		});
 		const data = await response.json();
 		console.log("[resMsg] Response from utils updateFunc : ");
