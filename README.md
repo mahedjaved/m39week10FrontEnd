@@ -21,6 +21,8 @@
 
 > The Update User function token was not being passed --> it finally worked by removing the dot, which makes no sense because it is the same token, I used for Logout !
 
+> Ayeesh :L --> Seems you cannot send req.body without having the header set as :: headers: { "Content-Type": "application/json" },
+
 # Unused Code Placed Here
 
 > Code to be improved for rendering

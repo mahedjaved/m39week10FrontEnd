@@ -96,7 +96,7 @@ export const logOutFunc = async (token) => {
 // Update function
 export const updateFunc = async (
 	token,
-	userId,
+	// userId,
 	username,
 	password,
 	new_username,
@@ -104,11 +104,15 @@ export const updateFunc = async (
 ) => {
 	try {
 		// console.log(`Front-End msg : ${token}  and userId : ${userId}`);
-		const response = await fetch("http://localhost:5000/users/update", {
+		const response = await fetch("http://localhost:5000/users/myprofile", {
 			method: "PATCH",
-			headers: { Authorization: token },
-			user: { _id: userId },
+			// headers: { Authorization: token },
+			// user: { _id: userId },
+			headers: {
+				"Content-Type": "application/json",
+			},
 			body: JSON.stringify({
+				token: token,
 				userName: username,
 				password: password,
 				new_username: new_username,
