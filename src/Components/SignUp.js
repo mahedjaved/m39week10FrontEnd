@@ -89,7 +89,7 @@ const SignUp = (userSetter) => {
 				<br />
 
 				{/* button to process, the handling of submitting is in the <form> tag */}
-				<button type="submit">Submit</button>
+				<button type="submit">SignUp</button>
 			</form>
 		</div>
 	);

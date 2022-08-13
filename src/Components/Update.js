@@ -43,6 +43,7 @@ function Update({ token, userId }) {
 					></input>
 				</label>
 				<br />
+				<button type="submit">Update</button>
 			</form>
 		</div>
 	);
