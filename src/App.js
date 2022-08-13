@@ -5,6 +5,7 @@ import "./App.css";
 import LogIn from "./Components/LogIn";
 import LogOut from "./Components/LogOut";
 import SignUp from "./Components/SignUp";
+import Update from "./Components/Update";
 
 function App() {
 	// images api state
@@ -14,6 +15,7 @@ function App() {
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [token, setToken] = useState("");
+	const [userId, setUserId] = useState("");
 
 	// function to update images state
 	const fetchImages = async () => {
@@ -41,16 +43,28 @@ function App() {
 			)}
 			{/* _______________________________________________________________________________________________ */}
 			<h2>Login Form</h2>
-			<LogIn emailSetter={setEmail} tokenSetter={setToken} />
+			<LogIn
+				emailSetter={setEmail}
+				tokenSetter={setToken}
+				userIdSetter={setUserId}
+			/>
 			{email.length === 0 ? (
 				<h2>No user logged in</h2>
 			) : (
 				<h2>You have signed with email - {email}</h2>
 			)}
 			{/* ______________________________________________________________________________________________ */}
-			<h2>LogOut</h2>
-			<LogOut token={token} />
+			{/* only if there is a token, then render the Logout function and update function */}
+			{token.length > 0 && (
+				<>
+					<h2>LogOut</h2>
+					<LogOut token={token} />
+					<h2>Update Username and Password</h2>
+					<Update token={token} userId={userId} />
+				</>
+			)}
 			{/* ______________________________________________________________________________________________ */}
+
 			<h2>Basic Instagram Clone</h2>
 			{/* Map through images */}
 			{myImages &&
@@ -58,7 +72,11 @@ function App() {
 					return (
 						<div>
 							<p>{item.author}</p>
-							<img alt="pic" src={item.download_url} key={index} />
+							<img
+								alt="pic"
+								src={item.download_url}
+								key={index}
+							/>
 							<br />
 						</div>
 					);

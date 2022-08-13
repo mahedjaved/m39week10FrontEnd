@@ -6,8 +6,7 @@ export const signUpFunc = async (
 	lastname,
 	email,
 	password,
-	userSetter,
-	tokenSetter
+	userSetter
 ) => {
 	try {
 		// response from API goes here
@@ -33,14 +32,20 @@ export const signUpFunc = async (
 		console.log(`[msg] New user signed up: ${data.savedUser.userName}`);
 		// set it up in the React
 		userSetter(data.savedUser.userName);
-		tokenSetter(data.token);
+		// tokenSetter(data.token);
 	} catch (error) {
 		console.log(`[errmsg] Error from React utils signUpFunc ==> ${error}`);
 	}
 };
 
 // Login function
-export const logInFunc = async (email, password, emailSetter, tokenSetter) => {
+export const logInFunc = async (
+	email,
+	password,
+	emailSetter,
+	tokenSetter,
+	userIdSetter
+) => {
 	try {
 		const response = await fetch("http://localhost:5000/users/login", {
 			method: "POST",
@@ -54,14 +59,17 @@ export const logInFunc = async (email, password, emailSetter, tokenSetter) => {
 		});
 		// the response need to be jsonified
 		const data = await response.json();
-		// console.log("[msg] This res comes from React utils loginFunc :");
-		// console.log(data);
+		console.log(
+			"[msg] This res comes from React utils loginFunc, checking if userId exists :"
+		);
+		console.log(data);
 		console.log(
 			`The following user with email : ${data.user.email} just logged in`
 		);
 		// console.log(`[permsg] Just checking if password is hashed : ${password}`);
 		emailSetter(data.user.email);
 		tokenSetter(data.token);
+		userIdSetter(data._id);
 	} catch (error) {
 		console.log(`[errmsg] Error from React utils loginFunc ==> ${error}`);
 	}

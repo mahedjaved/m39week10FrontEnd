@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { logInFunc } from "../utils";
 
-const LogIn = ({ emailSetter, tokenSetter }) => {
+const LogIn = ({ emailSetter, tokenSetter, userIdSetter }) => {
 	// state hooks for email and password
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -9,7 +9,13 @@ const LogIn = ({ emailSetter, tokenSetter }) => {
 	// handle submit button for the form
 	const handleLoginFormSubmit = async (event) => {
 		event.preventDefault();
-		await logInFunc(email, password, emailSetter, tokenSetter);
+		await logInFunc(
+			email,
+			password,
+			emailSetter,
+			tokenSetter,
+			userIdSetter
+		);
 	};
 
 	// main render component

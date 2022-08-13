@@ -11,16 +11,16 @@ function LogOut(token) {
 	return (
 		<div>
 			{/* you cannot logout without logging in so use short circuit to confirm somebody has logged in or not */}
-			{token && (
-				<button
-					onClick={(event) => {
-						handleLogoutButtonClick(event);
-					}}
-					type="submit"
-				>
-					LogOut
-				</button>
-			)}
+			(
+			<button
+				onClick={(event) => {
+					handleLogoutButtonClick(event);
+				}}
+				type="submit"
+			>
+				LogOut
+			</button>
+			)
 		</div>
 	);
 }

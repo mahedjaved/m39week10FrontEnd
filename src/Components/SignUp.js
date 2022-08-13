@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signUpFunc } from "../utils";
 
-const SignUp = ({ userSetter, tokenSetter }) => {
+const SignUp = (userSetter) => {
 	// a field and a setter for each of the five parameters we pass
 	const [username, setUsername] = useState("");
 	const [firstName, setFirstName] = useState("");
@@ -18,8 +18,7 @@ const SignUp = ({ userSetter, tokenSetter }) => {
 			lastName,
 			email,
 			password,
-			userSetter,
-			tokenSetter
+			userSetter
 		);
 	};
 
