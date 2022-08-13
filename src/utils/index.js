@@ -1,3 +1,4 @@
+//  All the backend - callback functions to the front-end reside here !!
 // is used to create a sign-up function, this is communicating with the back-end server
 export const signUpFunc = async (
 	username,
@@ -68,16 +69,6 @@ export const logInFunc = async (email, password, emailSetter, tokenSetter) => {
 
 // LogOut function
 export const logOutFunc = async (token, email, password) => {
-	/**
-	 * Requires authorisation --> runs the middleware func auth
-	 * Hence needs in the header the key term (Authorisation)
-	 * sth about replacing with bearer ?? research this
-	 * it takes the token from the header and then verifies it
-	 * it stores user in req.user and token in req.token
-	 * finds the user with that token, checks if the token is
-	 * similar to that stored --> prints out a message
-	 * on the endpoint :: /users/logout
-	 */
 	try {
 		const response = await fetch("http://localhost:5000/users/logout", {
 			method: "GET",
@@ -100,15 +91,16 @@ export const logOutFunc = async (token, email, password) => {
 };
 
 // Update function
-export const updateFunc = async ({ token }) => {
+export const updateFunc = async ({ token, userId, username, password }) => {
 	try {
 		const response = await fetch("http://localhost:5000/users/myprofile", {
 			method: "PATCH",
 			headers: { Authorization: token.token },
-			body: {},
+			user: { _id: userId },
+			body: JSON.stringify({ username, password }),
 		});
 		const data = await response.json();
-		console.log("[resMsg] Response from utils logOutFunc : ");
+		console.log("[resMsg] Response from utils updateFunc : ");
 		console.log(data);
 	} catch (error) {
 		// error handling
