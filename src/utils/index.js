@@ -103,15 +103,16 @@ export const updateFunc = async (
 	new_password
 ) => {
 	try {
-		const response = await fetch("http://localhost:5000/users/myprofile", {
+		// console.log(`Front-End msg : ${token}  and userId : ${userId}`);
+		const response = await fetch("http://localhost:5000/users/update", {
 			method: "PATCH",
-			headers: { Authorization: token.token },
+			headers: { Authorization: token },
 			user: { _id: userId },
 			body: JSON.stringify({
-				username,
-				password,
-				new_username,
-				new_password,
+				userName: username,
+				password: password,
+				new_username: new_username,
+				new_password: new_password,
 			}),
 		});
 		const data = await response.json();
