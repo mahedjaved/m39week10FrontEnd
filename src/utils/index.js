@@ -68,28 +68,24 @@ export const logInFunc = async (
 		);
 		// console.log(`[permsg] Just checking if password is hashed : ${password}`);
 		emailSetter(data.user.email);
+		userIdSetter(data.user._id);
 		tokenSetter(data.token);
-		userIdSetter(data._id);
 	} catch (error) {
 		console.log(`[errmsg] Error from React utils loginFunc ==> ${error}`);
 	}
 };
 
 // LogOut function
-export const logOutFunc = async (token, email, password) => {
+export const logOutFunc = async (token) => {
 	try {
 		const response = await fetch("http://localhost:5000/users/logout", {
 			method: "GET",
 			// headers: { Authorization: "Bearer " + token },
 			headers: { Authorization: token.token },
-			body: JSON.stringify({
-				email: email,
-				password: password,
-			}),
 		});
 		const data = await response.json();
-		console.log("[resMsg] Response from utils logOutFunc : ");
-		console.log(data);
+		// console.log("[resMsg] Response from utils logOutFunc : ");
+		// console.log(data);
 	} catch (error) {
 		console.log(
 			"[errormsg] The following error comes from logOutFunc in utils"
