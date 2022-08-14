@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { updateFunc } from "../utils";
 
-function Update({ token, userId }) {
+function Update(token) {
 	// state hooks present here
 	const [username, setOldUsername] = useState("");
 	const [password, setOldPassword] = useState("");
@@ -12,14 +12,7 @@ function Update({ token, userId }) {
 	// submit handler function
 	const handleUpdateFormSubmit = async (event) => {
 		event.preventDefault();
-		await updateFunc(
-			token,
-			userId,
-			username,
-			password,
-			new_username,
-			new_password
-		);
+		await updateFunc(token, username, password, new_username, new_password);
 	};
 
 	// final render component

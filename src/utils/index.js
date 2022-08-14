@@ -39,13 +39,7 @@ export const signUpFunc = async (
 };
 
 // Login function
-export const logInFunc = async (
-	email,
-	password,
-	emailSetter,
-	tokenSetter,
-	userIdSetter
-) => {
+export const logInFunc = async (email, password, emailSetter, tokenSetter) => {
 	try {
 		const response = await fetch("http://localhost:5000/users/login", {
 			method: "POST",
@@ -68,7 +62,7 @@ export const logInFunc = async (
 		);
 		// console.log(`[permsg] Just checking if password is hashed : ${password}`);
 		emailSetter(data.user.email);
-		userIdSetter(data.user._id);
+		// userIdSetter(data.user._id);
 		tokenSetter(data.token);
 	} catch (error) {
 		console.log(`[errmsg] Error from React utils loginFunc ==> ${error}`);
@@ -96,7 +90,6 @@ export const logOutFunc = async (token) => {
 // Update function
 export const updateFunc = async (
 	token,
-	// userId,
 	username,
 	password,
 	new_username,
@@ -112,7 +105,7 @@ export const updateFunc = async (
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				token: token,
+				token: token.token,
 				userName: username,
 				password: password,
 				new_username: new_username,

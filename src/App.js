@@ -15,7 +15,6 @@ function App() {
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [token, setToken] = useState("");
-	const [userId, setUserId] = useState("");
 
 	// function to update images state
 	const fetchImages = async () => {
@@ -43,11 +42,7 @@ function App() {
 			)}
 			{/* _______________________________________________________________________________________________ */}
 			<h2>Login Form</h2>
-			<LogIn
-				emailSetter={setEmail}
-				tokenSetter={setToken}
-				userIdSetter={setUserId}
-			/>
+			<LogIn emailSetter={setEmail} tokenSetter={setToken} />
 			{email.length === 0 ? (
 				<h2>No user logged in</h2>
 			) : (
@@ -60,7 +55,7 @@ function App() {
 					<h2>LogOut</h2>
 					<LogOut token={token} />
 					<h2>Update Username and Password</h2>
-					<Update token={token} userId={userId} />
+					<Update token={token} />
 				</>
 			)}
 			{/* ______________________________________________________________________________________________ */}
