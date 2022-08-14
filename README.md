@@ -23,6 +23,8 @@
 
 > Ayeesh :L --> Seems you cannot send req.body without having the header set as :: headers: { "Content-Type": "application/json" },
 
+> There was no need to setup SALT no. as .env variable, it didnt even work !
+
 # Unused Code Placed Here
 
 > Code to be improved for rendering
