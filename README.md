@@ -27,9 +27,11 @@
 
 > The Update User function token was not being passed --> it finally worked by removing the dot, which makes no sense because it is the same token, I used for Logout !
 
-> Ayeesh :L --> Seems you cannot send req.body without having the header set as :: headers: { "Content-Type": "application/json" },
+> Ayeesh ;¬| --> Seems you cannot send req.body without having the header set as :: headers: { "Content-Type": "application/json" },
 
 > There was no need to setup SALT no. as .env variable, it didnt even work !
+
+> DONT place any send request in hashPassword --> the bcrypt.hash function ALREADY sends request by adding a token in the header and then send req, YOU CANNOT SEND MORE THAN 1 REQ
 
 # Unused Code Placed Here
 
