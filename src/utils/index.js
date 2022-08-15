@@ -27,7 +27,7 @@ export const signUpFunc = async (
 		const data = await response.json();
 		// console.log(
 		// 	"[msg] This res comes from React utils signUp func with data: "
-		// console.log(data)
+		console.log(data);
 		// );
 		console.log(`[msg] New user signed up: ${data.savedUser.userName}`);
 		// set it up in the React
@@ -113,12 +113,35 @@ export const updateFunc = async (
 			}),
 		});
 		const data = await response.json();
-		console.log("[resMsg] Response from utils updateFunc : ");
+		console.log("[resMsgUpdate] Response from utils updateFunc : ");
 		console.log(data);
 	} catch (error) {
 		// error handling
 		console.log(
 			`[errormsg] This comes from updateFunc in utils :: ${error}`
 		);
+	}
+};
+
+// delete operation
+export const deleteUserFunc = async (token, username, password) => {
+	try {
+		const response = await fetch("http://localhost:5000/users/myprofile", {
+			method: "DELETE",
+			// this tells that we will send the body application as JSON
+			headers: { "Content-Type": "application/json" },
+			// the ones in the keys must match the schema, and the ones in the values must match the arguments
+			body: JSON.stringify({
+				token: token.token,
+				userName: username,
+				password: password,
+			}),
+		});
+		// response logging
+		const data = await response.json();
+		console.log("[resMsgDelete] Response from utils deleteUserFunc :  ");
+		console.log(data);
+	} catch (error) {
+		console.log();
 	}
 };

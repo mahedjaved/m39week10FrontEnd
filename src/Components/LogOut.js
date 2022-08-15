@@ -11,7 +11,7 @@ function LogOut(token) {
 	return (
 		<div>
 			{/* you cannot logout without logging in so use short circuit to confirm somebody has logged in or not */}
-			(
+
 			<button
 				onClick={(event) => {
 					handleLogoutButtonClick(event);
@@ -20,7 +20,6 @@ function LogOut(token) {
 			>
 				LogOut
 			</button>
-			)
 		</div>
 	);
 }

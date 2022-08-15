@@ -2,6 +2,7 @@
 // import { type } from "@testing-library/user-event/dist/type";
 import { useEffect, useState } from "react";
 import "./App.css";
+import Delete from "./Components/Delete";
 import LogIn from "./Components/LogIn";
 import LogOut from "./Components/LogOut";
 import SignUp from "./Components/SignUp";
@@ -56,6 +57,8 @@ function App() {
 					<LogOut token={token} />
 					<h2>Update Username and Password</h2>
 					<Update token={token} />
+					<h2>Delete Your Account ?</h2>
+					<Delete token={token} />
 				</>
 			)}
 			{/* ______________________________________________________________________________________________ */}

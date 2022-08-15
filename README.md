@@ -11,6 +11,12 @@
 
 > Andy didnt have a try catch statement for his hashPassword middleware function ! I had to add it myself later when working with logout and update request
 
+> It is possible to improve the update function with email option, not a huge change but an improvement point nonetheless
+
+> The delete user function needs to be tested (tested and works @14/08/2022 -- 15:36)
+
+> Changed Andy's code on authorisation to incorporate the checking of token type so as to allow both token from header and from body, either way via a turnary operator
+
 # Tips N Learned
 
 > Make sure to always use {} in React arguments ONLY ! if you do this index.js then arguments go to UNDEFINED
